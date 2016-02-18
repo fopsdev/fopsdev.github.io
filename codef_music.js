@@ -47,7 +47,7 @@ if(typeof(AudioContext) != 'undefined'){
 		  var __self = this;
 		  if(typeof(AudioContext) != 'undefined'){
                         var fetch = new XMLHttpRequest();
-                        fetch.open('GET', zic);
+                        fetch.open('GET', zic,true);
                         fetch.overrideMimeType("text/plain; charset=x-user-defined");
                         fetch.onreadystatechange = function() {
                                 if(this.readyState == 4 && this.status == 200) {
