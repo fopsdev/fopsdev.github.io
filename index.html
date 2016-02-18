@@ -21,11 +21,20 @@ var basepath="";
 
 var isReady = 0;
 
+var bgPicCounter = 0;
+
 
 var song=basepath + 'hmd-gen4-full.ym';
 var YMplayer = new music("YM");
 isReady=2;
 
+var bgPics = [];
+
+bgPics.push(new image(basepath + 'bg1.png'));
+bgPics.push(new image(basepath + 'bg2.png'));
+bgPics.push(new image(basepath + 'bg3.png'));
+bgPics.push(new image(basepath + 'bg4.png'));
+bgPics.push(new image(basepath + 'bg5.png'));
 
 var logo1=new image(basepath + 'logo1.png');
 var logo2=new image(basepath + 'logo2.png');
@@ -36,8 +45,8 @@ var font=new image(basepath + 'font7.png');
 var scrollY=0;
 
 var scrolltext;
-var text = "       HEEEEEELLLLLLOOOOOO PEOPLE.....AFTER MANY HOURS SITTING IN FRONT OF THEIR DRAWING BOARDS AND SCREENS ";
-text +=	   "CORESYSTEMS PROUDLY PRESENT THEIR NEW FSM STRATEGY.....TO BE REALTIME LIKE THIS DEMO IS KEY.... ";
+var text = "       HEEEEEELLLLLLOOOOOO PEOPLE    THIS IS REALTIME!!!!     AFTER MANY HOURS SITTING IN FRONT OF THEIR DRAWING BOARDS AND SCREENS ";
+text +=	   "CORESYSTEMS PROUDLY PRESENT THEIR NEW FSM STRATEGY     TO BE REALTIME LIKE THIS DEMO IS KEY      NEVER FORGET 1. THINK BIG 2. GET SHIT DONE  3. EVERYDAY INTEGRITY  4. SOLVE PROBLEMS WITH AWESOME PRODUCTS   AND RESPECT CUSTOMER LOYALITY AAAAND BIG RESPECT GOES TO ALL THE REMAINING ATARI ST FREAKS OUT THERE. ATARI RULEZ   AMIGA SUCKS             LEEEEETS START AGAIN!       ";
 
 
 var fontW=64, fontH=52, fontO=32;
@@ -128,10 +137,15 @@ function intro2(){
 function go(){
 
 if (fd==349)
+	{
 		fd = 0;
+    bgPicCounter++;
+		if (bgPicCounter > 4)
+				bgPicCounter = 0;
+	}
 	mycanvas.fill('#000000');
 
-	logo2.draw(mycanvas,0,0);
+	bgPics[bgPicCounter].draw(mycanvas,0,0);
 	blackcanvas.draw(mycanvas,0,0,1-fade[fd],0);
 	fd++;
 	scrollcanvas.drawPart(mycanvas,0,390-Math.abs(Math.sin(scrollY)*maxY),0,390-Math.abs(Math.sin(scrollY)*maxY),768,67);
