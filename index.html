@@ -36,8 +36,8 @@ var font=new image(basepath + 'font7.png');
 var scrollY=0;
 
 var scrolltext;
-var text="       CORESYSTEMS STRIKES BACK ... ";
-text+="GET THE SHIT DONE";
+var text = "       HEEEEEELLLLLLOOOOOO PEOPLE.....AFTER MANY HOURS SITTING IN FRONT OF THEIR DRAWING BOARDS AND SCREENS ";
+text +=	   "CORESYSTEMS PROUDLY PRESENT THEIR NEW FSM STRATEGY.....TO BE REALTIME LIKE THIS DEMO IS KEY.... ";
 
 
 var fontW=64, fontH=52, fontO=32;
@@ -107,7 +107,8 @@ function intro(){
 }
 
 function intro2(){
-	if ((fd==50) && (isReady>=2)) {
+	if ((fd==349) && (isReady>=2)) {
+    fd = 0;
 		go();
 	} else {
 		mycanvas.fill('#000000');
@@ -125,10 +126,14 @@ function intro2(){
 
 
 function go(){
+
+if (fd==349)
+		fd = 0;
 	mycanvas.fill('#000000');
 
 	logo2.draw(mycanvas,0,0);
-
+	blackcanvas.draw(mycanvas,0,0,1-fade[fd],0);
+	fd++;
 	scrollcanvas.drawPart(mycanvas,0,390-Math.abs(Math.sin(scrollY)*maxY),0,390-Math.abs(Math.sin(scrollY)*maxY),768,67);
 	mycanvas.line(0,390-Math.abs(Math.sin(scrollY)*maxY),768,390-Math.abs(Math.sin(scrollY)*maxY),2,'#000000');
 	mycanvas.line(0,2+(390-Math.abs(Math.sin(scrollY)*maxY)),768,2+(390-Math.abs(Math.sin(scrollY)*maxY)),2,'#888888');
