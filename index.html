@@ -62,7 +62,7 @@ for (var i=250; i<350; i++) {
 	}
 
 var maxY=320;
-var speedY=0.025;
+var speedY=0.020;
 
 function init(){
 	mycanvas=new canvas(768,540,"main");
@@ -90,7 +90,8 @@ function play_music(){
 function intro(){
 	if ((fd==349) && (isReady>=2)) {
 		play_music();
-		go();
+		fd=0;
+		intro2();
 	} else {
 		mycanvas.fill('#000000');
 
@@ -105,10 +106,28 @@ function intro(){
 	}
 }
 
+function intro2(){
+	if ((fd==175) && (isReady>=2)) {
+		go();
+	} else {
+		mycanvas.fill('#000000');
+
+		logo2.draw(mycanvas,0,0);
+		blackcanvas.draw(mycanvas,0,0,1-fade[fd],0);
+		fd++;
+
+		mycanvas.contex.fillStyle="#FFFFFF";
+		mycanvas.contex.font="64px Arial";
+
+		requestAnimFrame( intro2 );
+	}
+}
+
+
 function go(){
 	mycanvas.fill('#000000');
 
-	main.draw(mycanvas,0,0);
+	logo2.draw(mycanvas,0,0);
 
 	scrollcanvas.drawPart(mycanvas,0,390-Math.abs(Math.sin(scrollY)*maxY),0,390-Math.abs(Math.sin(scrollY)*maxY),768,67);
 	mycanvas.line(0,390-Math.abs(Math.sin(scrollY)*maxY),768,390-Math.abs(Math.sin(scrollY)*maxY),2,'#000000');
