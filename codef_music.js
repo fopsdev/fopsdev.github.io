@@ -49,6 +49,7 @@ if(typeof(AudioContext) != 'undefined'){
                         var fetch = new XMLHttpRequest();
                         fetch.open('GET', zic,true);
                         fetch.overrideMimeType("text/plain; charset=x-user-defined");
+                        fetch.setRequestHeader('Access-Control-Allow-Origin', '*');
                         fetch.onreadystatechange = function() {
                                 if(this.readyState == 4 && this.status == 200) {
                                         var t = this.responseText || "" ;
