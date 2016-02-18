@@ -6,30 +6,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <script>
 /*------------------------------------------------------------------------------
-Copyright (c) 2011 Antoine Santo Aka NoNameNo
-
-This File is part of the CODEF project.
 
 More info : http://codef.santo.fr
 Demo gallery http://www.wab.com
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 ------------------------------------------------------------------------------*/
 </script>
 <script src="codef_core.js"></script>
@@ -48,7 +27,8 @@ var YMplayer = new music("YM");
 isReady=2;
 
 
-var AL=new image(basepath + 'AL.png');
+var logo1=new image(basepath + 'logo1.png');
+var logo2=new image(basepath + 'logo2.png');
 var main=new image(basepath + 'main.png');
 var scrollback=new image(basepath + 'scrollback.png');
 var font=new image(basepath + 'font7.png');
@@ -56,12 +36,9 @@ var font=new image(basepath + 'font7.png');
 var scrollY=0;
 
 var scrolltext;
-var text="       THE DEBUG BOYS STRIKE BACK!!! ";
-text+="AND NOT TO FORGET WE ARE VERY HAPPY TO GET THIS INTRO!!! MANY THANKS TO STAX FOR THE QUICK ";
-text+="RESPONSE!! CREDITS.... CODING AND PICTURE CONVERSION: BOD OF STAX, LOWER BORDER REMOVAL: ";
-text+="SODAN OF STAX MUSIC: MAD MAX OF THE EXCEPTIONS (FROM A PREHISTORIC TALE)....     GREETINGS TO ";
-text+="ALL ATARI PPL OUT THERE!! NOBODY NAMED AND NOBODY FORGOT!    ATARI LEGEND XMAS 2006........        ";
-text+="      ....CODEF REMAKE BY MELLOW MAN!!                               WRAP....................                                     ";
+var text="       CORESYSTEMS STRIKES BACK ... ";
+text+="GET THE SHIT DONE";
+
 
 var fontW=64, fontH=52, fontO=32;
 
@@ -89,7 +66,6 @@ var speedY=0.025;
 
 function init(){
 	mycanvas=new canvas(768,540,"main");
-
 	scrollcanvas=new canvas(768,540);
 	blackcanvas=new canvas(768,540);
 
@@ -100,7 +76,6 @@ function init(){
         	scrolltext = new scrolltext_horizontal();
         	scrolltext.scrtxt=text;
         	scrolltext.init(mycanvas,font,7);
-
         	intro();
 }
 
@@ -119,7 +94,7 @@ function intro(){
 	} else {
 		mycanvas.fill('#000000');
 
-		AL.draw(mycanvas,0,0);
+		logo1.draw(mycanvas,0,0);
 		blackcanvas.draw(mycanvas,0,0,1-fade[fd],0);
 		fd++;
 
